@@ -10,9 +10,13 @@ screen.setup(width=800, height=600)
 screen.title("Pong Game")
 screen.tracer(0)
 
+# New right paddle 
 r_paddle = Paddle(350, 0)
+# New left paddle
 l_paddle = Paddle(-350, 0)
+# New ball 
 ball = Ball()
+# New scoreboard
 scoreboard = Scoreboard()
 
 screen.listen()
@@ -23,6 +27,7 @@ screen.onkeypress(l_paddle.go_down, "s")
 
 game_is_on = True
 while game_is_on:
+    # Update the entire screen 
     screen.update()
     ball.move()
 
@@ -34,6 +39,7 @@ while game_is_on:
     if ball.distance(r_paddle) < 50 and ball.xcor() > 320:
         ball.bounce_x_r_paddle()
     
+    # Detect collision with the left paddle 
     if ball.distance(l_paddle) < 50 and ball.xcor() < -320:
         ball.bounce_x_l_paddle()
     
