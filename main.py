@@ -53,13 +53,15 @@ while game_is_on:
         ball.reset_position_lloses()
         scoreboard.increase_right()
 
-    if scoreboard.lscore == 10:
+    if scoreboard.lscore == 11:
         game_is_on = False
-        scoreboard.write("The left player won")
+        scoreboard.goto(0,0)
+        scoreboard.write("The left player won", align="center", font=("Courier", 40, "normal"))
     
-    if scoreboard.rscore == 10:
+    if scoreboard.rscore == 11:
         game_is_on = False
-        scoreboard.write("The right player won")
+        scoreboard.goto(0,0)
+        scoreboard.write("The right player won", align="center", font=("Courier", 40, "normal"))
 
 
 
